@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store"
 // a little confusing that there are two seperate login functions
 import {login} from "./actions/session_actions"
+import Root from "./components/root"
 
 
 // window.signup = signup
@@ -16,9 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.getState = store.getState
     window.dispatch = store.dispatch
     window.login = login
+    window.testUser = {username: "ralles", password: "bluedresscapital"}
 
     const root = document.getElementById("root")
-    ReactDOM.render(<h1>Welcome to Sackforce</h1>, root)
+    ReactDOM.render(<Root store = {store}/>, root)
 
 
 })
