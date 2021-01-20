@@ -5,5 +5,11 @@ Rails.application.routes.draw do
   # and it tells to go to the controller at static_pages
   # then the controller default renders the root.html.erb view  
   root to: 'static_pages#root'
-end
+
+  namespace :api, defaults: {format: :json} do 
+    resources :users, only: [:create]
+    resource :session, only: [:create, :destroy]
+  end
+
+end 
   
