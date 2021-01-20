@@ -17,8 +17,8 @@ class User < ApplicationRecord
             if user.is_password?(password) 
                 return user
             else
-                return nil
             end
+            return nil
         else 
             return nil
         end
