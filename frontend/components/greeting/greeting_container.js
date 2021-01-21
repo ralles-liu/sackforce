@@ -5,7 +5,7 @@ import Greeting from "./greeting"
 
 const mstp = (state) => {
     return {
-        currentUser: state.entities.users[state.session.currentUserId]
+        currentUser: state.entities.users[state.session.id]
     }
 }
 

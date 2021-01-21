@@ -3,7 +3,8 @@ import {Link} from "react-router-dom"
 
 // basically whatever you pass in the {} are the props
 const Greeting = ({currentUser, logout}) => {
-    console.log(currentUser)
+    // console.log(currentUser)
+    console.log(logout)
     if (currentUser) {
         return (
             <div>
@@ -12,6 +13,8 @@ const Greeting = ({currentUser, logout}) => {
             </div>
         )
     } else {
+        console.log("i am logged out")
+        console.log(currentUser)
         return (
             <div>
                 <Link to="/login">
