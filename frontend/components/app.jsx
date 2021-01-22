@@ -9,8 +9,9 @@ const App = () => {
     // NEED TO FIGURE OUT ROUTES MORE, i can selectively give things class names
     return (
         <>
-            <h1>Sackforce</h1>
-            <GreetingContainer />
+            {/* <h1>Sackforce</h1> */}
+            {/* eventually this will be protected so you cant even access this unless ur logged out */}
+            <Route exact path ="/" component={GreetingContainer} />
 
             <AuthRoute exact path="/login" component= {LoginFormContainer}/>
             <AuthRoute exact path="/signup" component= {SignupFormContainer}/>                

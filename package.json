@@ -42,5 +42,9 @@
   "bugs": {
     "url": "https://github.com/ralles-liu/slack/issues"
   },
-  "homepage": "https://github.com/ralles-liu/slack#readme"
+  "homepage": "https://github.com/ralles-liu/slack#readme",
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1"
+  }
 }

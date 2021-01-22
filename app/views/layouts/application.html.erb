@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SlackFull</title>
+    <title>Sackforce</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript">
+      window.bdcLogoURL = "<%= image_url('bdc_logo.png') %>";
+      window.linkedinLogoURL = "<%= image_url('linkedin_logo.png') %>";
+      window.githubLogoURL = "<%= image_url('github_logo.png') %>";
+
+    </script>
   </head>
 
   <body>

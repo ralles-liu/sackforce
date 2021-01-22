@@ -46,3 +46,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+button {
+	/*
+	Get rid of native styling. Read more here:
+	http://css-tricks.com/almanac/properties/a/appearance/
+	*/
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 0;
+	padding: 0;
+	
+	
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}

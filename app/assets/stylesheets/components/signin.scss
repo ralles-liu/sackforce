@@ -1,0 +1,102 @@
+// $royal-blue-dark: #00297A;
+// div {
+//     font-weight: 300;
+//     color: $royal-blue-dark;
+// }
+
+$royal-blue-dark: #00297A;
+$light-gray: #DBE5E6;
+$middle-blue: #80CED7;
+$medium-turquiose: #63C7B2;
+$forest-green-traditional: #143109;
+
+div#session-creation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    header {
+        margin-top: 50px;
+        
+        img {
+            height: 40px;
+            vertical-align: middle;
+            margin-right: 10px
+        }
+
+        span.sackforce-name {
+            vertical-align: middle;
+            font-size: 35px
+        }
+        nav {
+            position: absolute;
+            text-align: right;
+            top: 50px;
+            right: 100px;
+            font-size: 16px;
+            div#link-to-create {
+                margin-top: 7px;
+                font-weight: bold;
+                color: $forest-green-traditional;
+            }
+        }
+    }
+    
+    div#session-form-body {
+        margin-top: 40px;
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+            font-weight: bold
+        }
+
+        span {
+            font-size: 16px;
+        }
+
+        form {
+            margin-top: 30px;
+            input {
+                border: 1.5px solid $royal-blue-dark;
+                border-radius: 3px; 
+                width: 70%;
+                margin-top: 15px;
+                height: 36px;
+                font-size: 18px;
+            }
+            
+            button {
+                margin-top: 15px;
+                height: 40px;
+                width: 72%;
+                background-color: $royal-blue-dark;
+                color: white;
+                font-size: 18px;
+                border-radius: 3px;
+               
+
+            }
+
+        }
+
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit
+    }
+
+    footer {
+        display: flex;
+        width: 300px;
+        margin-top: 450px;
+        align-items: center;
+        justify-content: space-between;
+        img {
+            width: 40px;
+        }
+    }
+
+}
