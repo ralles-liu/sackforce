@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 const mstp = (state, ownProps) => {
     return {
         errors: state.errors.session,
-        formType: "signup",
+        formType: "Sign up for Sackforce",
         link: <Link to="/login">Login</Link>
     }
 }

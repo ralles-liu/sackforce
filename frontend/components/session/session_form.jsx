@@ -1,5 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 export default class SessionForm extends React.Component {
     constructor(props) {
@@ -35,30 +35,53 @@ export default class SessionForm extends React.Component {
         })
 
         return (
-            <div id="session-creation">
-                <header>
-                    
-                    <img src="./AA_Times_Logo.png" alt="sackforce logo"/>
-                    <Link to="/">
-                        <img src="../app/assets/images/bdc_logo.png" alt="sackforce logo"/>
-                    </Link>
-                </header>
-                <form onSubmit={this.handleSubmit}>
-                    Welcome to Sackforce
-                    <br/>
-                    Please {this.props.formType} or {this.props.link}
-                    <ul>{errors}</ul>
-                    <br/>
-                    <label htmlFor="username">Username: </label>
-                    <input id="username" type="text" value={this.state.username} onChange={this.update('username')}/>
-                    <br/>
-                    <label htmlFor="password">Password: </label>
-                    <input id="password" type="password" value={this.state.password} onChange={this.update('password')}/>
-                    <br/>
-                    <button type="submit" value={this.props.formType}>{this.props.formType}</button>
- 
-                </form>
-            </div>
+        
+                <div id="session-creation">
+                    <header> 
+                        <Link to="/">
+                            <img src={window.bdcLogoURL} alt="sackforce logo" className="sackforce-logo"/>
+                            <span className="sackforce-name">sackforce</span>
+                        </Link>
+                        <nav>
+                            <span>New to Sackforce?</span>
+                            <div id="link-to-create">
+                                <Link to="/">
+                                    Please create an account
+                                </Link>
+                            </div>
+                            
+                        </nav>
+                    </header>
+                    <div id="session-form-body">
+                        <h1>{this.props.formType}</h1>
+                        <span>Continue with your email and password to sign in.</span>
+                        <form onSubmit={this.handleSubmit}>
+                        
+                            {/* HAVE A BUTTON SOMEWHERE ELSE THAT GIVE YOU THE OTHER OPTION */}
+                            
+                            <ul>{errors}</ul>
+                            
+                            {/* <label htmlFor="username">Username: </label> */}
+                            <input id="username" type="text" value={this.state.username} onChange={this.update('username')} placeholder="  name@company.com"/>
+                            <br/>
+                            <input id="password" type="password" value={this.state.password} onChange={this.update('password')} placeholder="  at least six characters"/>
+                            <br/>
+                            <button type="submit" value={this.props.formType}>Log in with email</button>
+
+                        </form>     
+                    </div>
+                    <footer>
+                        <span>Site for skill demonstration only</span>
+                        <a href="https://www.linkedin.com/in/ralles-liu/">
+                            <img src={window.linkedinLogoURL} alt="linkedin logo"/>
+                        </a>
+                        <a href="https://github.com/ralles-liu/">
+                            <img src={window.githubLogoURL} alt="github logo"/>
+                        </a>
+                        
+
+                    </footer>
+                </div>    
         )
     }
 }
