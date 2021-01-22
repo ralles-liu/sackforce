@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 export default class SessionForm extends React.Component {
     constructor(props) {
@@ -34,7 +35,14 @@ export default class SessionForm extends React.Component {
         })
 
         return (
-            <>
+            <div id="session-creation">
+                <header>
+                    
+                    <img src="./AA_Times_Logo.png" alt="sackforce logo"/>
+                    <Link to="/">
+                        <img src="../app/assets/images/bdc_logo.png" alt="sackforce logo"/>
+                    </Link>
+                </header>
                 <form onSubmit={this.handleSubmit}>
                     Welcome to Sackforce
                     <br/>
@@ -50,7 +58,7 @@ export default class SessionForm extends React.Component {
                     <button type="submit" value={this.props.formType}>{this.props.formType}</button>
  
                 </form>
-            </>
+            </div>
         )
     }
 }

@@ -8,7 +8,7 @@ const mstp = (state) => {
         currentUser: state.entities.users[state.session.id]
     }
 }
-
+    
 const mdtp = (dispatch) => {
     return {
         logout: () => dispatch(logout())

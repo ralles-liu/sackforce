@@ -13,8 +13,6 @@ const Greeting = ({currentUser, logout}) => {
             </div>
         )
     } else {
-        console.log("i am logged out")
-        console.log(currentUser)
         return (
             <div>
                 <Link to="/login">
