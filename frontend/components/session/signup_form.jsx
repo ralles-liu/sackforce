@@ -1,10 +1,11 @@
 import React from "react"
 import {Link} from "react-router-dom";
 
-export default class SessionForm extends React.Component {
+export default class SignupForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            display_name: "",
             username: "",
             password: ""
         }
@@ -24,18 +25,23 @@ export default class SessionForm extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors()
+    }
+    
     render() {
         const errors = this.props.errors.map((error, i) => {
             return (
                 // this key might not be good enough
-                <li key={i}>
-                    {error}
-                </li>
+                <div className="login-error" key={i}>
+                    {error}                    
+                </div>
             )
         })
-
-        return (
         
+        
+        return (
+
                 <div id="session-creation">
                     <header> 
                         <Link to="/">
@@ -43,10 +49,10 @@ export default class SessionForm extends React.Component {
                             <span className="sackforce-name">sackforce</span>
                         </Link>
                         <nav>
-                            <span>New to Sackforce?</span>
+                            <span>Already have an account?</span>
                             <div id="link-to-create">
-                                <Link to="/">
-                                    Please create an account
+                                <Link to="/login">
+                                    Please log in
                                 </Link>
                             </div>
                             
@@ -54,20 +60,20 @@ export default class SessionForm extends React.Component {
                     </header>
                     <div id="session-form-body">
                         <h1>{this.props.formType}</h1>
-                        <span>Continue with your email and password to sign in.</span>
+                        <span>Please provide a name, email, and password to create an account</span>
                         <form onSubmit={this.handleSubmit}>
                         
-                            {/* HAVE A BUTTON SOMEWHERE ELSE THAT GIVE YOU THE OTHER OPTION */}
                             
-                            <ul>{errors}</ul>
                             
-                            {/* <label htmlFor="username">Username: </label> */}
+                            <input id="display-name" type="text" value={this.state.display_name} onChange={this.update('display_name')} placeholder="  mina"/>
+                            <br/>                            
                             <input id="username" type="text" value={this.state.username} onChange={this.update('username')} placeholder="  name@company.com"/>
                             <br/>
                             <input id="password" type="password" value={this.state.password} onChange={this.update('password')} placeholder="  at least six characters"/>
                             <br/>
-                            <button type="submit" value={this.props.formType}>Log in with email</button>
-
+                            <button type="submit" value={this.props.formType}>Create an account</button>
+                            <br/>
+                            {errors}
                         </form>     
                     </div>
                     <footer>

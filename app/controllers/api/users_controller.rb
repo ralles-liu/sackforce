@@ -6,14 +6,14 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
-            render json: @user.errors.full_messages, status: 418
+            render json: ["unable to create account with provided credentials"], status: 401
         end
     end
 
 
 
     def user_params
-        return params.require(:user).permit(:username, :password)
+        return params.require(:user).permit(:display_name, :username, :password)
     end
 
 

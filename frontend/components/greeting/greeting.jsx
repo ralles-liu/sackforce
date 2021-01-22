@@ -1,5 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import Landing from "./landing"
 
 // basically whatever you pass in the {} are the props
 const Greeting = ({currentUser, logout}) => {
@@ -8,20 +9,14 @@ const Greeting = ({currentUser, logout}) => {
     if (currentUser) {
         return (
             <div>
-                <h1>Welcome {currentUser.username}</h1>
+                <h1>Welcome {currentUser.display_name}</h1>
                 <button onClick={logout}>Logout</button>
             </div>
         )
     } else {
         return (
-            <div>
-                <Link to="/login">
-                    <button type="button">Login</button>
-                </Link>
-                <Link to="/signup">
-                    <button type="button">Signup</button>
-                </Link>
-            </div>
+            <Landing />
+
         )
     }
 }

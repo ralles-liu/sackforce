@@ -4,7 +4,8 @@
 //     color: $royal-blue-dark;
 // }
 
-$royal-blue-dark: #00297A;
+$royal-blue-dark: #00297a;
+$royal-blue-dark-transparent: #00297ad3;
 $light-gray: #DBE5E6;
 $middle-blue: #80CED7;
 $medium-turquiose: #63C7B2;
@@ -58,44 +59,65 @@ div#session-creation {
 
         form {
             margin-top: 30px;
+            
             input {
                 border: 1.5px solid $royal-blue-dark;
                 border-radius: 3px; 
-                width: 70%;
+                width: 330px;
                 margin-top: 15px;
                 height: 36px;
                 font-size: 18px;
+            }
+
+            input:focus {
+                box-shadow: 0 0 0 4px $medium-turquiose
             }
             
             button {
                 margin-top: 15px;
                 height: 40px;
-                width: 72%;
+                width: 337px;
                 background-color: $royal-blue-dark;
                 color: white;
                 font-size: 18px;
                 border-radius: 3px;
-               
+            }
+
+            button:hover {
+                background-color: $royal-blue-dark-transparent
+            }
+
+            div.login-error {
+                display: inline-block;
+                border-radius: 3px;
+                background-color: rgba(255, 0, 0, 0.123);
+                border: 0.5px solid rgba(255, 0, 0, 0.801);
+                height: 40px;
+                width: 337px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 40px;
 
             }
 
         }
-
     }
 
-    a {
-        text-decoration: none;
-        color: inherit
-    }
+    // a {
+    //     text-decoration: none;
+    //     color: inherit
+    // }
 
     footer {
         display: flex;
+        position: absolute;
+        bottom: 30px;
         width: 300px;
         margin-top: 450px;
         align-items: center;
         justify-content: space-between;
         img {
-            width: 40px;
+            width: 35px;
         }
     }
 

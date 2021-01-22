@@ -1,21 +1,21 @@
 import {connect} from "react-redux"
-import SessionForm from "./session_form"
+import LoginForm from "./login_form"
 import React from "react"
-import {login} from "../../actions/session_actions"
-import {Link} from "react-router-dom"
+import {login, clearErrors} from "../../actions/session_actions"
+
 
 const mstp = (state, ownProps) => {
     return {
         errors: state.errors.session,
         formType: "Log in to Sackforce",
-        link: <Link to="/signup">Signup</Link>
     }
 }
 
 const mdtp = (dispatch, ownProps) => {
     return { 
-        processForm: user => dispatch(login(user))
+        processForm: user => dispatch(login(user)),
+        clearErrors: () => dispatch(clearErrors())
     }
 }
 
-export default connect(mstp, mdtp)(SessionForm)
+export default connect(mstp, mdtp)(LoginForm)
