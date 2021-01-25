@@ -9,8 +9,17 @@ import {Link} from "react-router-dom"
 export default class Landing extends React.Component {
     constructor(props) {
         super(props)
+        this.handleDemo = this.handleDemo.bind(this)
     }
 
+    handleDemo(e) {
+        e.preventDefault
+        const user = {
+            username: "demo@gmail.com",
+            password: "demopassword"
+        }
+        this.props.login(user)
+    }
 
     render() {
         return (
@@ -26,6 +35,7 @@ export default class Landing extends React.Component {
                         <nav id="nav-bar">
                             <ul id="nav-level1">
                                 <li>
+                                    
                                     <Link to="/">
                                         Products
                                     </Link>
@@ -70,23 +80,59 @@ export default class Landing extends React.Component {
                             <button type="button" id="section-signup-button">Create an account</button>
                         </Link>
                         <br/>
-                        <Link to="/">
-                            <button type="button" id="section-demo-button">Demo user</button>
-                        </Link>
+
+                        <button onClick={this.handleDemo} type="button" id="section-demo-button">Demo user</button>
+                 
                         
                     </div>
                     <img id="chatting-image"src={window.chattingURL}alt="chatting"/>
                 </section>
-                {/* <section id="second-section">
-                    section2
-                    
+                <section id="second-section">
+                    <img id="app-image"src={window.appPhotoURL}alt="app-photo"/>
+                    <div id='descriptive-text'>
+                        <div id="images-bar">
+                            <i className="fas fa-comments"></i>
+                            <i className="fas fa-basketball-ball"></i>
+                            <i className="fas fa-cat"></i>
+                            <i className="fas fa-sun"></i>
+                        </div>
+                        <h1>An easier way to chat</h1>
+                        <p>
+                            Sackforce lets you chat about anything with anyone!
+                            Create public channels for all the topics you're intersted in
+                            or message in private privately
+                        </p>
+                    </div>
                 </section>
-                <section>
-                    section3
+                <section id='third-section'>
+                    <div id="third-section-wrapper">
+                        <h1>
+                            Choose the better way to message
+                        </h1>
+                        <nav>
+                            <Link to="/signup">
+                                <button type="button" id="section-signup-button">Create an account</button>
+                            </Link>
+                            
+                            <button onClick={this.handleDemo} type="button" id="section-demo-button">Demo user</button>
+                        </nav>
+                    </div>
                 </section>
-                <section>
-                    section4
-                </section> */}
+                {/* <footer id="landing-footer">
+                    <div id="resume-points">
+                        <ul>
+                            
+
+
+                        </ul>
+                    </div>
+                    <div>
+
+                    </div>
+
+
+
+                </footer> */}
                 
             </div>
         )

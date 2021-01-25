@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap');
 
 // figure out how to get the various boldings
+
+
+
 $nunito: 'Nunito Sans', sans-serif;
 $royal-blue-dark: #00297A;
 $light-gray: #DBE5E6;
@@ -14,10 +17,16 @@ html {
 
 body {
 	width: 100%;
+	height: 100%;
 	margin: 0 auto;
 	font-family: $nunito;
     font-size: 12px;
     
+}
+
+main {
+	height: 100%;
+	width: 100%;
 }
 
 a {

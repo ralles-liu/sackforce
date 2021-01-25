@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import Landing from "./landing"
 
 // basically whatever you pass in the {} are the props
-const Greeting = ({currentUser, logout}) => {
+const Greeting = ({currentUser, logout, login}) => {
     // console.log(currentUser)
     console.log(logout)
     if (currentUser) {
@@ -15,7 +15,7 @@ const Greeting = ({currentUser, logout}) => {
         )
     } else {
         return (
-            <Landing />
+            <Landing login={login}/>
 
         )
     }
