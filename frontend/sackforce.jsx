@@ -4,9 +4,12 @@ import configureStore from "./store/store"
 // a little confusing that there are two seperate login functions
 import {login} from "./actions/session_actions"
 import Root from "./components/root"
-import { fetchChannels } from "./actions/channel_actions";
+import { fetchChannels, createChannel, deleteChannel } from "./actions/channel_actions";
+
 
 window.fetchChannels = fetchChannels
+window.createChannel = createChannel
+window.deleteChannel = deleteChannel
 
 // window.signup = signup
 // window.login = login
