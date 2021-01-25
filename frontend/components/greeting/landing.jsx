@@ -36,25 +36,16 @@ export default class Landing extends React.Component {
                             <ul id="nav-level1">
                                 <li>
                                     
-                                    <Link to="/">
-                                        Products
-                                    </Link>
+                                    <a href="https://www.linkedin.com/in/ralles-liu/">
+                                        LinkedIn
+                                    </a>    
                                 </li>
                                 <li>
-                                    <Link to="/">
-                                        Enterprise
-                                    </Link>
+                                    <a href="https://github.com/ralles-liu/">
+                                        Github
+                                    </a>
                                 </li>
-                                <li>
-                                    <Link to="/">
-                                        Resources
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        Pricing
-                                    </Link>
-                                </li>
+                                
                             </ul>
                             <div id="right-nav">
                                 <Link to="/login">
