@@ -9,6 +9,16 @@ export default class LoginForm extends React.Component {
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
+    }
+
+    handleDemo(e) {
+        e.preventDefault
+        const user = {
+            username: "demo@gmail.com",
+            password: "demopassword"
+        }
+        this.props.login(user)
     }
 
     handleSubmit(e) {
@@ -52,6 +62,10 @@ export default class LoginForm extends React.Component {
                                 <Link to="/signup">
                                     Please create an account
                                 </Link>
+                            
+                            </div>
+                            <div id='link-to-demo' onClick={this.handleDemo}>
+                                Or use our demo login
                             </div>
                             
                         </nav>
@@ -61,8 +75,6 @@ export default class LoginForm extends React.Component {
                         <span>Continue with your email and password to sign in.</span>
                         <form onSubmit={this.handleSubmit}>
                         
-                            
-                            
                             
                             {/* <label htmlFor="username">Username: </label> */}
                             <input id="username" type="text" value={this.state.username} onChange={this.update('username')} placeholder="  name@company.com"/>

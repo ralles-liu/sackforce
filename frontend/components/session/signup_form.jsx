@@ -10,6 +10,15 @@ export default class SignupForm extends React.Component {
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
+    }
+    handleDemo(e) {
+        e.preventDefault
+        const user = {
+            username: "demo@gmail.com",
+            password: "demopassword"
+        }
+        this.props.login(user)
     }
 
     handleSubmit(e) {
@@ -54,6 +63,9 @@ export default class SignupForm extends React.Component {
                                 <Link to="/login">
                                     Please log in
                                 </Link>
+                            </div>
+                            <div id='link-to-demo' onClick={this.handleDemo}>
+                                Or use our demo login
                             </div>
                             
                         </nav>

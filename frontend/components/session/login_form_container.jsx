@@ -14,7 +14,8 @@ const mstp = (state, ownProps) => {
 const mdtp = (dispatch, ownProps) => {
     return { 
         processForm: user => dispatch(login(user)),
-        clearErrors: () => dispatch(clearErrors())
+        clearErrors: () => dispatch(clearErrors()),
+        login: (user) => dispatch(login(user))
     }
 }
 

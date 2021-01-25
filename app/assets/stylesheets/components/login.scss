@@ -41,6 +41,16 @@ div#session-creation {
                 font-weight: bold;
                 color: $forest-green-traditional;
             }
+            
+            div#link-to-demo {
+                margin-top: 7px;
+                font-weight: bold;
+                color: $forest-green-traditional;
+            }
+
+            div#link-to-demo:hover {
+                cursor: pointer;
+            }
         }
     }
     
