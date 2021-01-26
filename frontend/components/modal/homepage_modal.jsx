@@ -20,7 +20,7 @@ export default class HomepageModal extends React.Component {
                             {this.props.currentUser.display_name}
                         </div>
                         
-                        <button id="bottom-level" onClick={this.props.logout}>Logout of Sackforce</button>
+                        <button id="bottom-level" onClick={this.props.logout}>Log out of Sackforce</button>
 
                     </div>
                     
