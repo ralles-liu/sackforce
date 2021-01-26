@@ -5,8 +5,8 @@ import { Redirect } from "react-router-dom";
 
 // basically whatever you pass in the {} are the props
 const Greeting = ({currentUser, logout, login}) => {
-    // console.log(currentUser)
-    console.log(logout)
+    
+    
     if (currentUser) {
         return (
 
