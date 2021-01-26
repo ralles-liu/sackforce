@@ -13,7 +13,7 @@ export default class SignupForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this)
     }
     handleDemo(e) {
-        e.preventDefault
+        e.preventDefault()
         const user = {
             username: "demo@gmail.com",
             password: "demopassword"

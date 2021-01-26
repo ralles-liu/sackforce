@@ -13,7 +13,7 @@ export default class LoginForm extends React.Component {
     }
 
     handleDemo(e) {
-        e.preventDefault
+        e.preventDefault()
         const user = {
             username: "demo@gmail.com",
             password: "demopassword"

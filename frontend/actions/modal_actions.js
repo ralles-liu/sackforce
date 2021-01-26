@@ -9,6 +9,7 @@ export const openModal = modal => {
 }
 
 export const closeModal = () => {
+    console.log("TRYING TO CLOSE MODAL")
     return {
         type: CLOSE_MODAL
     }

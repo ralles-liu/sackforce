@@ -13,7 +13,7 @@ export default class Landing extends React.Component {
     }
 
     handleDemo(e) {
-        e.preventDefault
+        e.preventDefault()
         const user = {
             username: "demo@gmail.com",
             password: "demopassword"
