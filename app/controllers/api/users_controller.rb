@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!(@user)
+            @channels = []
             render :show
         else
             render json: ["unable to create account with provided credentials"], status: 401

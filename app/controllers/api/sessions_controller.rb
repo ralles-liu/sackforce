@@ -5,6 +5,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
         if @user
             login!(@user)
+            @channels = @user.channels
             render "/api/users/show"
         else
             render json: ["unable to login with provided credentials"], status: 401

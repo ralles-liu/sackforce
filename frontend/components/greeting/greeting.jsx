@@ -11,7 +11,10 @@ const Greeting = ({currentUser, channels, channelIds, logout, login}) => {
         if (channelIds.length === 0) {
             
             console.log("THIS USER HAS NO CHANNELS AND YOU NEED TO RENDER A SPECIAL FORM IN THIS CASE")
-            return null
+            
+            return (
+                <Redirect to={`/user`} />
+            )
         }
 
         
@@ -25,6 +28,7 @@ const Greeting = ({currentUser, channels, channelIds, logout, login}) => {
             // </div>   
         )
     } else {
+        console.log("trying to login")
         return (
             <Landing login={login}/>
 

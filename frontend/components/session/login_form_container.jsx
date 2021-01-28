@@ -2,6 +2,9 @@ import {connect} from "react-redux"
 import LoginForm from "./login_form"
 import React from "react"
 import {login, clearErrors} from "../../actions/session_actions"
+import {fetchChannels} from "../../actions/channel_actions"
+
+fetchChannels()
 
 
 const mstp = (state, ownProps) => {

@@ -1,12 +1,12 @@
 import {RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions"
 import {RECEIVE_CHANNEL} from "../actions/channel_actions"
-const sessionReducer = (state = {id: null, channelId: null}, action) => {
+const sessionReducer = (state = {id: null}, action) => {
     Object.freeze(state)
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            return {id: action.user.id, channelId: null}
+            return {id: action.results.user.id}
         case LOGOUT_CURRENT_USER:
-            return {id: null, channelId: null}
+            return {id: null}
         case RECEIVE_CHANNEL:
             let newState = Object.assign({}, state)
             newState.channelId = action.channel.id

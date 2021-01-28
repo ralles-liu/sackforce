@@ -1,0 +1,125 @@
+div#new-homepage-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div#new-homepage-modal {
+        background-color: white;
+        border-radius: 10px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        
+        width: 600px;
+        height: 550px;
+
+        #header {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #title {
+                font-weight: bold;
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            #description {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                font-size: 24px;
+            }     
+        }
+
+        form {
+            margin-top: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+            height: 4000px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            label {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 24px;
+                
+            }
+            input {
+                height: 35px;
+                font-size: 20px;
+            }
+            input#name {
+                margin-bottom: 30px;
+            }
+            button {
+                margin-top: 50px;
+                height: 40px;
+                background-color: $royal-blue-dark;
+                color: white;
+                font-size: 20px;
+                border-radius: 5px;
+            }
+
+            button:hover {
+                background-color: $royal-blue;
+            }
+        }
+
+    }
+}
+
+#homepage-modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+  
+    #homepage-modal {
+        
+        border-radius: 6px;
+        box-shadow: 0 0 2px 1px gray;
+        position: fixed;
+        top: 70px;
+        right: 30px;
+        width: 300px;
+        height: 330px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        div#top-level {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            margin-left: 15px;
+            font-size: 20px;
+
+            div#icon {
+                width: 35px;
+                height: 35px;
+                background-color: darkgreen;
+                color: white;
+                border-radius: 3px;
+                font-size: 20px;    
+                margin-right: 10px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 35px;
+
+            }
+        }
+
+        button {
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+    }
+}

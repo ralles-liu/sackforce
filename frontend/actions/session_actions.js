@@ -15,29 +15,13 @@ export const clearErrors = () => {
     }
 }
 
-const receiveCurrentUser = (user) => {
-    // every time we log in we need to fetch the channels
-    // const testFunction = (result) => {
-    //     return {
-    //         result
-    //     }
-    // }
-    let channels = APIChannelUtil.fetchChannels()
-    // .then(
-    //     channels => {return channels}
-    // )
-    // let channels = test.responseJSON
-    // console.log("initial return")
-    // console.log(test)
-    console.log("channels")
-    console.log(channels)
-    
-   
+const receiveCurrentUser = (results) => {
+    console.log(results)
+
 
     return {
         type: RECEIVE_CURRENT_USER,
-        user,
-        channels
+        results
     }
 }
 
@@ -60,7 +44,7 @@ const receiveErrors = (errors) => {
 export const login = (user) => (dispatch) => {
     return (
         APIUtil.login(user).then(
-            user => dispatch(receiveCurrentUser(user)),
+            results => dispatch(receiveCurrentUser(results)),
             // this is executed if our Ajax fails (aka we get some errors)
             // apparently necessary to convert the AJAX return into a JSON
             // we don't need it above because our extract creates the JSON for us
@@ -81,7 +65,7 @@ export const logout = () => dispatch => {
 export const signup = (user) => dispatch => {
     return (
         APIUtil.signup(user).then(
-            user => dispatch(receiveCurrentUser(user)),
+            results => dispatch(receiveCurrentUser(results)),
             errors => dispatch(receiveErrors(errors.responseJSON))
         )
     )

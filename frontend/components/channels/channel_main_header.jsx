@@ -23,7 +23,7 @@ export default class ChannelMainHeader extends React.Component {
                 <nav id="channel-nav-header">
                     <div id='left-side'>
                         <h1 id="name">{channel.name}</h1>
-                        <h2 id="description">{channel.description}f</h2>
+                        <h2 id="description">{channel.description}</h2>
                     </div>
     
                     <div id='right-side'>

@@ -4,7 +4,7 @@ import {RECEIVE_CHANNELS,
     REMOVE_USER, 
     RECEIVE_USER} from "../actions/channel_actions"
 
-import {RECEIVE_CURRENT_USER} from "../actions/session_actions"
+import {RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER} from "../actions/session_actions"
 
 const channelsReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -26,9 +26,9 @@ const channelsReducer = (state = {}, action) => {
             newState3[action.channelId].users[action.user.id] = action.user  
             return newState3
         case RECEIVE_CURRENT_USER:
-            console.log("trying to create channels")
-            return Object.assign({}, state, action.channels)
-
+            return Object.assign({}, state, action.results.channels)
+        case LOGOUT_CURRENT_USER:
+            return {}
         default:
             return state
     }
