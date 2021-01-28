@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import { Redirect } from "react-router-dom";
-import {addUserModalContainer} from "../modal/add_user_modal_container"
+import AddUserModalContainer from "../modal/add_user_modal_container"
 
 export default class ChannelMainHeader extends React.Component {
 
@@ -31,13 +31,12 @@ export default class ChannelMainHeader extends React.Component {
                     </div>
     
                     <div id='right-side'>
-                        <i onClick={this.displayModal("addUsers")}className="fas fa-user-plus"></i>
+                        <i onClick={this.displayModal("addUser")}className="fas fa-user-plus"></i>
                         <i className="fas fa-info-circle"></i>
-                        <addUserModalContainer />
+                        <AddUserModalContainer currChannelId = {this.props.currChannel}/>
     
     
                     </div>
-    
     
                 </nav>
                 

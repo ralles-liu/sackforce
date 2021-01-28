@@ -19,6 +19,20 @@ class Channel < ApplicationRecord
     has_many :users,
         through: :channel_memberships,
         source: :user
+    
+    has_one :chat_membership,
+        class_name: :ChatChannelMembership,
+        foreign_key: :channel_id,
+        primary_key: :id
+    
+    has_one :live_chat,
+        through: :chat_membership,
+        source: :live_chat
+
+    has_many :messages,
+        through: :live_chat,
+        source: :messages
+
 
 
 end

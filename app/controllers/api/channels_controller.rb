@@ -64,19 +64,27 @@ class Api::ChannelsController < ApplicationController
     end
 
     def update
-        if params.key?(:userId) && params.key?(:channelId)
-            membership = ChannelMembership.new({user_id: params[:userId], channel_id: params[:channelId]})
-            if membership.save
-                # NEED TO RETURN THE USER and ALSO the RECEUVE user needs to trigger the useres session as well
-                @user = User.find(params[:userId])
-                render "/api/users/show"
-            else
-                render json: ['couldnt create ChannelMembership'], status: 418
+    
+        if params.key?(:username) && params.key?(:channelId)
+
+            @user = User.find_by(username: params[:username])
+            if @user 
+                membership = ChannelMembership.new({user_id: @user.id, channel_id: params[:channelId]})
+                if membership.save
+                    # NEED TO RETURN THE USER and ALSO the RECEUVE user needs to trigger the useres session as well
+                    render "/api/users/altshow"
+                else
+                    render json: ['couldnt create ChannelMembership'], status: 418
+                end
+            
+            else 
+
+                render json: ['couldnt find user'], status: 418
             end
 
 
         # CONFUSING BUT IN THIS CASE OUR AJAX REQUEST PASSES IN A DIFFERENT OBJECT    
-        elsif !params[:channel].key?(:userId)
+        elsif !params[:channelId].key?(:userId)
             @channel = Channel.find(params[:channel][:id])
 
             @channel.name = params[:channel][:name]

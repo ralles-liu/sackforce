@@ -1,4 +1,5 @@
-div#new-homepage-background {
+
+div#add-user-background {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -9,57 +10,49 @@ div#new-homepage-background {
     display: flex;
     justify-content: center;
     align-items: center;
-    div#new-homepage-modal {
+
+    div#add-user-modal {
         background-color: white;
         border-radius: 10px;
         color: black;
         display: flex;
         flex-direction: column;
         
-        width: 600px;
-        height: 550px;
+        width: 300px;
+        height: 250px;
 
         #header {
-            margin-top: 40px;
+            margin-top: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             #title {
                 font-weight: bold;
-                font-size: 30px;
-                margin-bottom: 15px;
-            }
-            #description {
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 10px;
                 font-size: 24px;
-            }     
+                margin-bottom: 10px;
+                
+            }
         }
 
         form {
-            margin-top: 40px;
+            margin-top: 20px;
             padding-left: 20px;
             padding-right: 20px;
-            height: 4000px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             label {
-                font-weight: bold;
                 margin-bottom: 10px;
-                font-size: 24px;
+                font-size: 16px
                 
             }
             input {
                 height: 35px;
                 font-size: 20px;
             }
-            input#name {
-                margin-bottom: 30px;
-            }
             button {
-                margin-top: 50px;
+                margin-top: 20px;
                 height: 40px;
                 background-color: $royal-blue-dark;
                 color: white;
@@ -74,3 +67,6 @@ div#new-homepage-background {
 
     }
 }
+
+
+

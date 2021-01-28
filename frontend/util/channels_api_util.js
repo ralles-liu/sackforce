@@ -42,10 +42,13 @@ export const updateChannel = (channel) => {
 }
 
 
-export const addUserToChannel = (channelId, userId) => {
+export const addUserToChannel = (channelId, username) => {
+    console.log('sending ajax to add user')
+    console.log(channelId)
+    console.log(username)
     return $.ajax({
         url: `api/channels/${channelId}`,
         method: "PATCH",
-        data: {channelId, userId}
+        data: {channelId, username}
     })
 }

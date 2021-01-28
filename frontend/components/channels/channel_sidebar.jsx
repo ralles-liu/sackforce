@@ -33,7 +33,6 @@ const ChannelSidebar = ({userChannels, currChannel, hidden}) => {
                     {/* eventually the icon has to be a button */}
                     {icon} &nbsp; {userChannels[key].name} 
                 </Link>
-                
             </li>
         )
     })   

@@ -88,9 +88,9 @@ export const updateChannel = (channel) => dispatch => {
     )
 }
 
-export const addUserToChannel = (channelId, userId) => dispatch => {
+export const addUserToChannel = (channelId, username) => dispatch => {
     return (
-        APIUtil.addUserToChannel(channelId, userId).then(
+        APIUtil.addUserToChannel(channelId, username).then(
             user => dispatch(receiveUser(channelId, user))
         )
     )

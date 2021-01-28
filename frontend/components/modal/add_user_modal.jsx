@@ -9,10 +9,7 @@ export default class AddUserModal extends React.Component {
 
         
         this.state = {
-            admin_id: this.props.currentUser.id,
-            name: "",
-            description: "",
-            public: false,
+            username: ""
             // redirect: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,9 +21,11 @@ export default class AddUserModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        let channel = Object.assign({}, this.state)
+        let user = Object.assign({}, this.state)
         // delete channel.redirect
-        this.props.createChannel(channel)    
+        console.log(user.username)
+        console.log(this.props.currChannelId)
+        this.props.addUser(this.props.currChannelId, user.username)    
         this.props.closeModal()
         
         
@@ -41,24 +40,20 @@ export default class AddUserModal extends React.Component {
 
     render() {
 
-        if (this.props.modal === "navChannel") {
+        if (this.props.modal === "addUser") {
             return (
-                <div id = "channel-modal-background" onClick={this.props.closeModal}>
-                    <div id="channel-modal" onClick={e => e.stopPropagation()}>
+                <div id = "add-user-background" onClick={this.props.closeModal}>
+                    <div id="add-user-modal" onClick={e => e.stopPropagation()}>
                         <div id="header">
-                            <p id='title'>Create a Channel</p>
-                            <p id='description'>Please fill in the information below to create a channel. You can add friends after the channel has been created</p>
+                            <p id='title'>Add a user to channel</p>
+                            
                         </div>
                         <form onSubmit={this.handleSubmit}>
-                            <label htmlFor="name">Enter a channel name</label>
+                            <label htmlFor="username">Enter a username to add them</label>
                             
-                            <input id="name" type="text" value={this.state.name} onChange={this.update('name')} placeholder="  wsb fanclub"/>
-                            <br/>
-                            <label htmlFor="description">Describe the channel</label>
+                            <input id="username" type="text" value={this.state.username} onChange={this.update('username')} />
                             
-                            <input id="description" type="text" value={this.state.description} onChange={this.update('description')} placeholder='  discuss wsb "strategies" '/>
-                            
-                            <button type="submit" >Create Channel</button>
+                            <button type="submit" >Add User</button>
                             
                         </form>
 

@@ -69,3 +69,23 @@ ChannelMembership.create!(
     channel_id: channel3.id
 )
 
+chat1 = LiveChat.create!(
+
+)
+
+chatMembership = ChatChannelMembership.create!(
+    channel_id: channel1.id,
+    chat_id: chat1.id
+)
+
+Message.create!(
+    user_id: demo.id,
+    chat_id: chat1.id,
+    message: "Hello everyone I am the admin of this channel"
+)
+
+Message.create!(
+    user_id: ralles.id,
+    chat_id: chat1.id,
+    message: "Hey demo, I am a participant in this channel"
+)
