@@ -1,5 +1,6 @@
 // need to do this otherwise there is conflict with naming the thunks login, logout, signup
 import * as APIUtil from '../util/session_api_util';
+import * as APIChannelUtil from "../util/channels_api_util"
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER"
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
@@ -15,10 +16,28 @@ export const clearErrors = () => {
 }
 
 const receiveCurrentUser = (user) => {
+    // every time we log in we need to fetch the channels
+    // const testFunction = (result) => {
+    //     return {
+    //         result
+    //     }
+    // }
+    let channels = APIChannelUtil.fetchChannels()
+    // .then(
+    //     channels => {return channels}
+    // )
+    // let channels = test.responseJSON
+    // console.log("initial return")
+    // console.log(test)
+    console.log("channels")
+    console.log(channels)
+    
+   
 
     return {
         type: RECEIVE_CURRENT_USER,
-        user
+        user,
+        channels
     }
 }
 

@@ -4,9 +4,11 @@ import Homepage from "./homepage"
 import {openModal} from "../../actions/modal_actions"
 
 
-const mstp = (state) => {
+const mstp = (state, ownProps) => {
     return {
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        userChannels: state.entities.channels,
+        currChannel: ownProps.match.params.channelId
     }
 }
     
@@ -14,7 +16,7 @@ const mdtp = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
         // login: (user) => dispatch(login(user))
-        openModal: () => dispatch(openModal("homepage"))
+        openModal: (type) => dispatch(openModal(type))
     }   
 }
 

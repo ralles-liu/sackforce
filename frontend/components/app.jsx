@@ -13,7 +13,7 @@ const App = () => {
             {/* <h1>Sackforce</h1> */}
             {/* eventually this will be protected so you cant even access this unless ur logged out */}
             <Route exact path ="/" component={GreetingContainer} />
-            <ProtectedRoute path ="/user" component={HomepageContainer} />
+            <ProtectedRoute path ="/user/:channelId" component={HomepageContainer} />
             <AuthRoute exact path="/login" component= {LoginFormContainer}/>
             <AuthRoute exact path="/signup" component= {SignupFormContainer}/>                
 

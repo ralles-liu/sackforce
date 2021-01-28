@@ -5,6 +5,8 @@ import * as APIUtil from '../util/channels_api_util';
 export const RECEIVE_CHANNELS = "RECEIVE_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL"
+export const REMOVE_USER = "REMOVE_USER"
+export const RECEIVE_USER = "RECEIVE_USER"
 
 
 
@@ -16,6 +18,7 @@ const receiveChannels = (channels) => {
 }
 
 const receiveChannel = (channel) => {
+   
     return {
         type: RECEIVE_CHANNEL,
         channel
@@ -29,6 +32,21 @@ const removeChannel = (channelId) => {
     }
 }
 
+const removeUser = (channelId, userId) => {
+    return {
+        type: REMOVE_USER,
+        channelId,
+        userId
+    }
+}
+
+const receiveUser = (channelId, user) => {
+    return {
+        type: RECEIVE_USER,
+        channelId,
+        user
+    }
+}
 // ADD IN ERRORS TO THE THEN LATER
 export const fetchChannels = () => dispatch => {
     return (
@@ -54,3 +72,26 @@ export const deleteChannel = (channelId) => dispatch => {
     )
 }
 
+export const deleteUserFromChannel = (channelId, userId) => dispatch => {
+    return (
+        APIUtil.deleteUserFromChannel(channelId, userId).then(
+            () => dispatch(removeUser(channelId, userId))
+        )
+    )
+}
+
+export const updateChannel = (channel) => dispatch => {
+    return (
+        APIUtil.updateChannel(channel).then(
+            channel => dispatch(receiveChannel(channel))
+        )
+    )
+}
+
+export const addUserToChannel = (channelId, userId) => dispatch => {
+    return (
+        APIUtil.addUserToChannel(channelId, userId).then(
+            user => dispatch(receiveUser(channelId, user))
+        )
+    )
+}

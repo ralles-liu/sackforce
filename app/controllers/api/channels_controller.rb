@@ -35,21 +35,64 @@ class Api::ChannelsController < ApplicationController
 
     def destroy
         # destroys the channel and removes all the necessary connections
-        channel = Channel.find(params[:id])
+        if !params.key?(:userId)
+            channel = Channel.find(params[:channelId])
 
-        if channel 
-            channel.destroy
-            # this shoudl cause a rerender by changing our mstp
-            render json: {}
+            if channel 
+                channel.destroy
+                # this shoudl cause a rerender by changing our mstp
+                render json: {}
+            else
+                render json: ['no channel to destory'], status: 418
+            end
+        elsif params.key?(:userId) && params.key?(:channelId)
+            membership = ChannelMembership.find_by(user_id: params[:userId], channel_id: params[:channelId])
+            if membership
+                membership.destroy
+
+                # EVENTUALLY IN OUR CHANNEL STATE IT WILL HAVE PARTICIPANTS INDEX WHICH MSUT BE CHANGED the API UTIL needs to somehow poll for this?
+                # or we don't return anyting we just know to remove that speific ID from the state!
+                render json: {}
+            else
+                render json: ['no user to destroy'], status: 404
+            end
+        
         else
-            render json: ['no channel to destory'], status: 418
+            render json: ['complete fail'], status: 404
         end
+
     end
 
-    # def update
-    #     # update the details of the channel
-    #     # or if a user is provided, adds that user
-    # end
+    def update
+        if params.key?(:userId) && params.key?(:channelId)
+            membership = ChannelMembership.new({user_id: params[:userId], channel_id: params[:channelId]})
+            if membership.save
+                # NEED TO RETURN THE USER and ALSO the RECEUVE user needs to trigger the useres session as well
+                @user = User.find(params[:userId])
+                render "/api/users/show"
+            else
+                render json: ['couldnt create ChannelMembership'], status: 418
+            end
+
+
+        # CONFUSING BUT IN THIS CASE OUR AJAX REQUEST PASSES IN A DIFFERENT OBJECT    
+        elsif !params[:channel].key?(:userId)
+            @channel = Channel.find(params[:channel][:id])
+
+            @channel.name = params[:channel][:name]
+            @channel.description = params[:channel][:description]
+            @channel.public = params[:channel][:public]
+
+            if @channel.save 
+                render "/api/channels/show"
+            else 
+                render json: ["couldnt save the changes"], status: 401
+            end
+
+        else
+            render json: ['complete fail'], status: 404
+        end
+    end
 
 
     def channel_params

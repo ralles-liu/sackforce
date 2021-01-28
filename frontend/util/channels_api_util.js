@@ -15,11 +15,37 @@ export const createChannel = (channel) => {
     })
 }
 
+
 export const deleteChannel = (channelId) => {
     return $.ajax({
         url: `api/channels/${channelId}`,
         method: "DELETE",
-        data: {id: channelId}
+        data: {channelId}
     })
 }
 
+export const deleteUserFromChannel = (channelId, userId) => {
+    console.log("trying to delete something")
+    return $.ajax({
+        url: `api/channels/${channelId}`,
+        method: "DELETE",
+        data: {channelId, userId}
+    })
+}
+
+export const updateChannel = (channel) => {
+    return $.ajax({
+        url: `api/channels/${channel.id}`,
+        method: "PATCH",
+        data: {channel}
+    })
+}
+
+
+export const addUserToChannel = (channelId, userId) => {
+    return $.ajax({
+        url: `api/channels/${channelId}`,
+        method: "PATCH",
+        data: {channelId, userId}
+    })
+}

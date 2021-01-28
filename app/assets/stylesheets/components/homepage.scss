@@ -1,11 +1,12 @@
 div#homepage-container {
-    background-color: $royal-blue-dark;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     
 
     header#homepage-header {
+        background-color: $royal-blue-dark;
         display: grid;
         grid-template-columns: 20% 55% 25%;
         width: 100%;
@@ -120,5 +121,120 @@ div#homepage-container {
                 background-color: rgba(0, 100, 0, 0.904);
             }   
         }
+    }
+}
+
+
+
+div#homepage-container {
+    height: 100%;
+    div#main-body {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        div#border-in-container {
+            position: absolute;
+            width: 100%;
+            top: 185px;
+            border-bottom: 1px solid $light-gray;
+        }
+
+        div#chat-container {
+            width: 100%;
+            background-color:white;
+            display: flex;
+            flex-direction: column;
+
+            nav#channel-nav-header {
+                // margin-top: 30px;
+                height: 85px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                div#left-side {
+                    margin-left: 25px;
+                    #name {
+                        font-size: 25px;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                div#right-side {
+                    margin-right: 5px;
+                    font-size: 25px;
+                    color:$forest-green-traditional;
+                    i {
+                        margin-right: 25px;
+                    }
+                }
+            }
+        }
+
+        div#sidebar {
+            background-color: $royal-blue;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            color: white;
+            font-size: 20px;
+
+            div#nav-header {
+                display: flex;
+                margin-top: 30px;
+                margin-left: 30px;
+                font-size: 25px;
+
+                h2 {
+                    font-weight: bold;
+                    margin-right: 150px;
+                }
+                i {
+                    margin-right: 10px
+                }
+            }
+            
+            div#nav-header-line {
+                margin-top: 30px;
+                border-bottom: 1.5px solid $light-gray;
+                width: 100%;
+            }
+
+            div#channel-header {
+                display: flex;
+                margin-top: 60px;
+                margin-left: 30px;
+                justify-content: space-between;
+                h1 {
+                    cursor: pointer;
+                }
+                i {
+                    margin-right: 15px;
+                    cursor: pointer;
+                    
+                }
+            }
+
+            ul#channel-list-container {
+                // padding-left: 30px;
+                margin-top: 30px;
+                
+                .selected {
+                    background-color: $middle-blue;
+
+                }
+
+                li {
+                    vertical-align: middle;
+                    // align-content: ce;
+                    margin-bottom: 20px;
+                    padding-left: 30px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+            }
+        }
+
     }
 }

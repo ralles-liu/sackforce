@@ -5,7 +5,7 @@ class Channel < ApplicationRecord
     validates :description, presence: true
     validates :public, inclusion: {in: [true, false]}
     
-    belongs_to :user,
+    belongs_to :admin,
         class_name: :User,
         foreign_key: :admin_id,
         primary_key: :id
@@ -16,6 +16,9 @@ class Channel < ApplicationRecord
         primary_key: :id, 
         dependent: :destroy
 
+    has_many :users,
+        through: :channel_memberships,
+        source: :user
 
 
 end

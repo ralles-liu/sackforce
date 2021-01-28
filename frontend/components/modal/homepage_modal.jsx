@@ -7,7 +7,9 @@ export default class HomepageModal extends React.Component {
         super(props)
     }
 
-
+    componentWillUnmount() {
+        this.props.closeModal()
+    }
 
     render() {
 
