@@ -1,4 +1,4 @@
-# why coulddn't i just do json.extract directly? it just immediately return that it seems
+# why couldn't i just do json.extract directly? it just immediately return that it seems
 
 @channels.each do |channel|
     participants = channel.users

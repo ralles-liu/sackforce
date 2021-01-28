@@ -77,7 +77,7 @@ export default class Homepage extends React.Component {
                     
 
                     <div id="chat-container">
-                        <ChannelMainHeader userChannels={this.props.userChannels} currChannel={this.props.currChannel}/>
+                        <ChannelMainHeader userChannels={this.props.userChannels} currChannel={this.props.currChannel} openModal={this.props.openModal}/>
                         
 
                     </div>
