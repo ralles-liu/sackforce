@@ -2,6 +2,7 @@ import {connect} from "react-redux"
 import {logout} from "../../actions/session_actions"
 import Homepage from "./homepage"
 import {openModal} from "../../actions/modal_actions"
+import {fetchMessages, removeMessages} from "../../actions/message_actions"
 
 
 const mstp = (state, ownProps) => {
@@ -16,7 +17,9 @@ const mdtp = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
         // login: (user) => dispatch(login(user))
-        openModal: (type) => dispatch(openModal(type))
+        openModal: (type) => dispatch(openModal(type)),
+        fetchMessages: (channelId) => dispatch(fetchMessages(channelId)), 
+        removeMessages: () => dispatch(removeMessages())
     }   
 }
 

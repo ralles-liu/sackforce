@@ -73,9 +73,27 @@ chat1 = LiveChat.create!(
 
 )
 
-chatMembership = ChatChannelMembership.create!(
+chat2 = LiveChat.create!(
+
+)
+
+chat3 = LiveChat.create!(
+
+)
+
+chatMembership1 = ChatChannelMembership.create!(
     channel_id: channel1.id,
     chat_id: chat1.id
+)
+
+chatMembership2 = ChatChannelMembership.create!(
+    channel_id: channel2.id,
+    chat_id: chat2.id
+)
+
+chatMembership3 = ChatChannelMembership.create!(
+    channel_id: channel3.id,
+    chat_id: chat3.id
 )
 
 Message.create!(
@@ -88,4 +106,10 @@ Message.create!(
     user_id: ralles.id,
     chat_id: chat1.id,
     message: "Hey demo, I am a participant in this channel"
+)
+
+Message.create!(
+    user_id: demo.id,
+    chat_id: chat1.id,
+    message: "Hey ralles!"
 )

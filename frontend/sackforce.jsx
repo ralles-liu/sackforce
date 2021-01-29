@@ -6,6 +6,7 @@ import {login, logout, signup} from "./actions/session_actions"
 import Root from "./components/root"
 import { fetchChannels, createChannel, deleteChannel, deleteUserFromChannel, updateChannel, addUserToChannel } from "./actions/channel_actions";
 import * as Test from "./util/channels_api_util"
+import {fetchMessages, sendMessage} from "./actions/message_actions"
 
 window.fetchChannels = fetchChannels
 window.createChannel = createChannel
@@ -17,6 +18,8 @@ window.testFetch = Test.fetchChannels
 window.signup = signup
 window.login = login
 window.logout = logout
+window.fetchMessages = fetchMessages
+window.sendMessage = sendMessage
 
 document.addEventListener("DOMContentLoaded", () => {
 

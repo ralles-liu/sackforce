@@ -22,13 +22,9 @@ const Greeting = ({currentUser, channels, channelIds, logout, login}) => {
             // need to decide which CHANNLE I DEFAULT SHOW, just the first one?
             // perhaps it has to be saved in the databse as a user property
             <Redirect to={`/user/${channelIds[0]}`} />
-            // <div>
-            //     <h1>Welcome {currentUser.display_name}</h1>
-            //     <button onClick={logout}>Logout</button>
-            // </div>   
+            
         )
     } else {
-        console.log("trying to login")
         return (
             <Landing login={login}/>
 

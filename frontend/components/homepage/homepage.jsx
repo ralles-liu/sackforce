@@ -4,6 +4,7 @@ import ChannelSidebar from "../channels/channel_sidebar"
 import HomepageModalContainer from "../modal/homepage_modal_container"
 import ChannelModalContainer from "../modal/channel_modal_container"
 import ChannelMainHeader from "../channels/channel_main_header"
+import LiveChatContainer from "../chat/live_chat_container"
 
 
 // basically whatever you pass in the {} are the props
@@ -20,8 +21,6 @@ export default class Homepage extends React.Component {
     }
 
     expandChannel(e) {
-        console.log('changing hidden state')
-        console.log(this.state.hidden)
         if (this.state.hidden) {
             this.setState({hidden: false})
         } else {
@@ -29,11 +28,14 @@ export default class Homepage extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log(`fetching message in homepage for ${this.props.currChannel}`)
+        this.props.fetchMessages(this.props.currChannel)
+        
+    }
 
 
     render() { 
-        
-        
         return (    
 
             <div id="homepage-container">
@@ -71,22 +73,18 @@ export default class Homepage extends React.Component {
 
                         </div>
                         {/* to hide you need a property that gets passed in if its clicked */}
-                        <ChannelSidebar hidden={this.state.hidden} userChannels={this.props.userChannels} currChannel = {this.props.currChannel}/>
+                        <ChannelSidebar fetchMessages={this.props.fetchMessages} removeMessages={this.props.removeMessages} hidden={this.state.hidden} userChannels={this.props.userChannels} currChannel = {this.props.currChannel}/>
                         
                     </div>
                     
 
                     <div id="chat-container">
                         <ChannelMainHeader userChannels={this.props.userChannels} currChannel={this.props.currChannel} openModal={this.props.openModal}/>
+                        <LiveChatContainer currChannelId={this.props.currChannel} />
                         
-
                     </div>
 
-
-
                 </div>
-                
-
 
             </div>
             

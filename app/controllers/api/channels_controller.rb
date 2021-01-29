@@ -20,8 +20,10 @@ class Api::ChannelsController < ApplicationController
         if @channel.save
             # need to also create a channelmembership
             # also might need to create a chat and chat membership later
-            membership = ChannelMembership.new({user_id: current_user.id, channel_id: @channel.id})
-            if membership.save
+            membership = ChannelMembership.create!({user_id: current_user.id, channel_id: @channel.id})
+            chat = LiveChat.create!()
+            chatMembership = ChatChannelMembership.create!({channel_id: @channel.id, chat_id: chat.id})
+            if membership && chat && chatMembership
                 render "/api/channels/show"
             else
 

@@ -2,46 +2,58 @@ import React from "react"
 import {Link} from "react-router-dom"
 import { Redirect } from "react-router-dom";
 
-const ChannelSidebar = ({userChannels, currChannel, hidden}) => {
+export default class ChannelSidebar extends React.Component {
     
-    if (hidden) {
-        console.log("are we ever hidden")
-        return null
+    constructor(props) {
+        super(props)
+
+       
     }
 
-    let channelList = Object.keys(userChannels).map((key, index) => {
+
+    
+    componentDidUpdate() {
+        console.log(`fetching message for ${this.props.currChannel}`)
+        this.props.fetchMessages(this.props.currChannel)
+    }
+
+    render() {
+        if (this.props.hidden) {
+            return null
+        }
+
+        let channelList = Object.keys(this.props.userChannels).map((key, index) => {
+
+            let icon
+            if (this.props.userChannels[key].public) {
+                // this means its public so display a hashtag icon
+                icon = <i className="fas fa-hashtag"></i>
+            } else {
+                icon = <i className="fas fa-lock"></i>
+            }
+
+            let highlight
+            if (key === this.props.currChannel) {
+                highlight = "selected"
+            } else {
+                highlight = ""
+            }
         
+            return (
+                <li className={highlight} id={`channel-${key}`} key={key} >
+                    <Link to={`/user/${key}`}>
+                        {/* eventually the icon has to be a button onClick={this.handleClick} */}
+                        {icon} &nbsp; {this.props.userChannels[key].name} 
+                    </Link>
+                </li>
+            )
+        })   
 
-        let icon
-        if (userChannels[key].public) {
-            // this means its public so display a hashtag icon
-            icon = <i className="fas fa-hashtag"></i>
-        } else {
-            icon = <i className="fas fa-lock"></i>
-        }
-
-        let highlight
-        if (key === currChannel) {
-            highlight = "selected"
-        } else {
-            highlight = ""
-        }
-     
         return (
-            <li className={highlight} id={`channel-${key}`} key={index}>
-                <Link to={`/user/${key}`}>
-                    {/* eventually the icon has to be a button */}
-                    {icon} &nbsp; {userChannels[key].name} 
-                </Link>
-            </li>
+            <ul id='channel-list-container'>
+                {channelList}
+            </ul>
         )
-    })   
-
-    return (
-        <ul id='channel-list-container'>
-            {channelList}
-        </ul>
-    )
+    }
 }
 
-export default ChannelSidebar
