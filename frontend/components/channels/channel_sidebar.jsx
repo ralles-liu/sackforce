@@ -14,11 +14,11 @@ export default class ChannelSidebar extends React.Component {
         this.props.removeMessages()
     }
     
-    // componentDidUpdate() {
-    //     console.log(`fetching message for ${this.props.currChannel}`)
-    //     // this.props.removeMessages()
-    //     this.props.fetchMessages(this.props.currChannel)
-    // }
+    componentDidUpdate() {
+        console.log(`fetching message for ${this.props.currChannel}`)
+        // this.props.removeMessages()
+        this.props.fetchMessages(this.props.currChannel)
+    }
 
     render() {
         if (this.props.hidden) {
