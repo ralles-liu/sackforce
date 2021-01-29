@@ -1,7 +1,7 @@
 import {connect} from "react-redux"
 import {logout} from "../../actions/session_actions"
 import LiveChat from "./live_chat"
-import {sendMessage} from "../../actions/message_actions"
+import {sendMessage, removeMessages} from "../../actions/message_actions"
 
 
 const mstp = (state) => {
@@ -14,10 +14,8 @@ const mstp = (state) => {
     
 const mdtp = (dispatch) => {
     return {
-        sendMessage: (channelId, message) => dispatch(sendMessage(channelId, message))
-        // logout: () => dispatch(logout()),
-        // // login: (user) => dispatch(login(user))
-        // openModal: (type) => dispatch(openModal(type))
+        sendMessage: (channelId, message) => dispatch(sendMessage(channelId, message)),
+        removeMessages: () => dispatch(removeMessages())
     }   
 }
 

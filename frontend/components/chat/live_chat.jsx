@@ -12,7 +12,7 @@ export default class LiveChat extends React.Component {
         this.change = this.change.bind(this)
     }
 
-
+  
     handleSubmit() {
         e.preventDefault()
         this.props.sendMessage(this.props.currChannelId, this.state.message)
@@ -23,11 +23,14 @@ export default class LiveChat extends React.Component {
         window.e = e
         this.setState({message: e.currentTarget.value})
     }
-
+    
     render() {
         let channel = this.props.channels[this.props.currChannelId]
-        
-        
+        // THE BUG HERE IS THAT WHEN I GO FORM A CHANNEL WITH MESSAGES TO WITHOUT
+        // SOMEHOW MY PROPS STILL THINKS IT HAS MESSAGES
+        // AND TRIES TO RENDER THEm
+        console.log("in live CHAT")
+        console.log(this.props.messages)
         let messageList = Object.keys(this.props.messages).map((key, i) => {
             let sender = this.props.messages[key].user_id
             let name = ""

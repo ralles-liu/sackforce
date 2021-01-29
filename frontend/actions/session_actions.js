@@ -16,8 +16,7 @@ export const clearErrors = () => {
 }
 
 const receiveCurrentUser = (results) => {
-    console.log(results)
-
+   
 
     return {
         type: RECEIVE_CURRENT_USER,

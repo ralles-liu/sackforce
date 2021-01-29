@@ -7,15 +7,18 @@ export default class ChannelSidebar extends React.Component {
     constructor(props) {
         super(props)
 
-       
+       this.handleClick = this.handleClick.bind(this)
     }
 
-
+    handleClick() {
+        this.props.removeMessages()
+    }
     
-    componentDidUpdate() {
-        console.log(`fetching message for ${this.props.currChannel}`)
-        this.props.fetchMessages(this.props.currChannel)
-    }
+    // componentDidUpdate() {
+    //     console.log(`fetching message for ${this.props.currChannel}`)
+    //     // this.props.removeMessages()
+    //     this.props.fetchMessages(this.props.currChannel)
+    // }
 
     render() {
         if (this.props.hidden) {
@@ -40,7 +43,7 @@ export default class ChannelSidebar extends React.Component {
             }
         
             return (
-                <li className={highlight} id={`channel-${key}`} key={key} >
+                <li className={highlight} id={`channel-${key}`} key={key} onClick={this.handleClick}>
                     <Link to={`/user/${key}`}>
                         {/* eventually the icon has to be a button onClick={this.handleClick} */}
                         {icon} &nbsp; {this.props.userChannels[key].name} 

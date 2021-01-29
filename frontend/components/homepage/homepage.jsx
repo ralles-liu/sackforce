@@ -34,8 +34,19 @@ export default class Homepage extends React.Component {
         
     }
 
+    // componentDidUpdate() {
+    //     // console.log(`fetching message in homepage for ${this.props.currChannel}`)
+    //     this.props.fetchMessages(this.props.currChannel)
+        
+    // }
+
+    // componentDidUpdate() {
+    //     this.props.removeMessages()
+    // }
+
 
     render() { 
+        
         return (    
 
             <div id="homepage-container">

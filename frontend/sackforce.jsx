@@ -18,7 +18,7 @@ window.testFetch = Test.fetchChannels
 window.signup = signup
 window.login = login
 window.logout = logout
-window.fetchMessages = fetchMessages
+
 window.sendMessage = sendMessage
 
 document.addEventListener("DOMContentLoaded", () => {
